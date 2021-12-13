@@ -1,0 +1,43 @@
+plugins {
+    id 'java'
+    id "com.heroku.sdk.heroku-gradle" version "2.0.0"
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    maven { url "https://mvn.mchv.eu/repository/mchv/" }
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
+
+    implementation platform('it.tdlight:tdlight-java-bom:2.7.10.8')
+
+    implementation group: 'com.sparkjava', name: 'spark-template-velocity', version: '2.7.1'
+
+    implementation 'it.tdlight:tdlight-java'
+    implementation 'it.tdlight:tdlight-natives-linux-amd64'
+    // https://mvnrepository.com/artifact/org.xerial/sqlite-jdbc
+    implementation group: 'org.xerial', name: 'sqlite-jdbc', version: '3.7.2'
+    implementation 'org.telegram:telegrambots:5.5.0'
+    // https://mvnrepository.com/artifact/org.toile-libre.libe/curl
+    implementation group: 'org.toile-libre.libe', name: 'curl', version: '0.0.39'
+// https://mvnrepository.com/artifact/com.googlecode.libphonenumber/libphonenumber
+    implementation group: 'com.googlecode.libphonenumber', name: 'libphonenumber', version: '8.12.39'
+// https://mvnrepository.com/artifact/com.googlecode.json-simple/json-simple
+    implementation group: 'com.googlecode.json-simple', name: 'json-simple', version: '1.1.1'
+// https://mvnrepository.com/artifact/redis.clients/jedis
+    implementation group: 'redis.clients', name: 'jedis', version: '3.7.0'
+    implementation group: 'xerces', name: 'xercesImpl', version: '2.12.1'
+    implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0-alpha5'
+    implementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.0-alpha5'
+
+}
+
+test {
+    useJUnitPlatform()
+}
