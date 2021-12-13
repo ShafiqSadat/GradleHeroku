@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id "com.heroku.sdk.heroku-gradle" version "2.0.0"
+    id "spring-boot"
 }
 
 group 'org.example'
@@ -35,9 +36,12 @@ dependencies {
     implementation group: 'xerces', name: 'xercesImpl', version: '2.12.1'
     implementation group: 'org.slf4j', name: 'slf4j-api', version: '2.0.0-alpha5'
     implementation group: 'org.slf4j', name: 'slf4j-simple', version: '2.0.0-alpha5'
+    implementation ("org.springframework.boot:spring-boot-starter-thymeleaf")
 
 }
-
+task stage {
+    dependsOn build
+}
 test {
     useJUnitPlatform()
 }
